@@ -1,7 +1,7 @@
 import os
 import imghdr
 
-def search(path, source, target):
+def search_two_suffixes(path, source, target):
     sourcenum = 0
     delnum = 0
     dellist = []
@@ -20,7 +20,7 @@ def search(path, source, target):
                 delnum += 1
     return sourcenum, delnum, dellist
 
-def delete(path, dellist):
+def delete_from_list(path, dellist):
     delnumsuccess = 0
     delnumfail = 0
     for delfile in dellist:
@@ -34,13 +34,13 @@ def delete(path, dellist):
             print(delpath+'删除失败')
     return delnumsuccess, delnumfail
 
-def detector(path):
+def detect_damaged_pictures(path, suffix):
     delnum = 0
     dellist = []
     for f in os.listdir(path):
         # 筛选出图片文件
         image = f
-        if image.endswith('.jpg'):
+        if image.endswith(suffix):
             jpgpath = os.path.join(path, image)
             if not imghdr.what(jpgpath):
                 delnum += 1

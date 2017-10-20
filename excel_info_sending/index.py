@@ -1,6 +1,8 @@
 import xlrd
 import os
-from sendemail import send
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir)))
+import zijinlib as zj
 
 excel_path = os.path.join('excel_info_sending', "tmp", "info.xls")  # 自行导入，本例中第一列是学号，第二列是要发送的密码，第三列是姓名，第四列是邮箱
 data = xlrd.open_workbook(excel_path)
@@ -20,5 +22,5 @@ for i in range(nrows):
         <p>因为密码必须私自发给你们，所以选用了这种方式哈哈。填写时如果有问题请QQ找我。</p>
         <p>from：爱你们的班长</p>
     """ % (name, password)
-    back = send(name, emailaddr, content, subject)
+    back = zj.mail.send_email(name, emailaddr, content, subject)
     print(back)

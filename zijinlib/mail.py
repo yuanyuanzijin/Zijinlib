@@ -13,7 +13,7 @@ mail_host="smtp.qq.com"  #设置服务器
 mail_user=EMAIL_NAME    #用户名
 mail_pass=SECRET_KEY   #口令 
 
-def send(name, emailaddr, content, subject):
+def send_email(name, emailaddr, content, subject):
     sender = mail_user
     receivers = [emailaddr]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
     mail_msg = content

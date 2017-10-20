@@ -1,10 +1,11 @@
 # python-scripts/excel_info_sending
-自动发送邮件程序。将excel表格中学生对应的密码发送到对应的邮箱中。
 
-主程序为index.py，请将excel表格放入tml文件夹中。
+Automatically sending email program. Send the password corresponding to the student in the excel form to the corresponding mailbox.
 
-在index.py修改自己的发送内容。
+The main program is index.py, please put the excel form in the tml folder.
 
-将secret.txt.examle修改自己的配置信息，并改名为secret.txt
+Modify your own send content at index.py.
 
-然后python index.py即可。
+Modify your own configuration information in secret.txt.examle and rename it to secret.txt
+
+Then python index.py.
