@@ -6,8 +6,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pard
 import zijinlib as zj
 
 path = 'D:\\program\\object-detection\\data\\strawberry\\'
-suffix = '.jpg'
-print('开始检测损坏的jpg文件...')
+suffix = input('请输入要检测的图片后缀（例如：jpg）')
+print('开始检测损坏的%s文件...' % suffix)
 delnum, dellist = zj.file.detect_damaged_pictures(path, suffix)
 
 if not dellist:
