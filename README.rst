@@ -8,7 +8,7 @@ Zijinlib is a common python package written by me. Every project in this repo wi
 Description
 ================
 
-Breif introductions.
+Brief introductions.
 
 zj.file
 ----
