@@ -1,7 +1,5 @@
 import xlrd
 import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir)))
 import zijinlib as zj
 
 excel_path = os.path.join('excel_info_sending', "tmp", "info.xlsx")  # 自行导入，本例中第一列是学号，第二列是姓名，第三列是邮箱，第四列是要发送的密码

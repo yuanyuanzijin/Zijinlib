@@ -29,3 +29,4 @@ def send_email(emailaddr, content, subject):
         return True
     except smtplib.SMTPException:
         return False
+    

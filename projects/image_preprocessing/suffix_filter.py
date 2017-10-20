@@ -1,7 +1,5 @@
 # python 3.6.1
 import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir)))
 import zijinlib as zj
 
 classname = input('请输入要检测的分类名称：')

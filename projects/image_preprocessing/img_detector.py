@@ -1,8 +1,6 @@
 # python 3.6.1
 import os
 import imghdr
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir)))
 import zijinlib as zj
 
 path = 'D:\\program\\object-detection\\data\\orange\\'

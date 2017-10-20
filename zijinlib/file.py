@@ -1,6 +1,5 @@
 import os
 import imghdr
-import json
 
 def search_two_suffixes(sourcelist, targetlist):
     targetlist_new = []
@@ -42,4 +41,3 @@ def detect_damaged_pictures(filelist):
         if not imghdr.what(f):
             dellist.append(f)
     return dellist
-
