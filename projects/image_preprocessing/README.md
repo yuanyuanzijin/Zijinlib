@@ -1,4 +1,4 @@
-# python-scripts/image_preprocessing
+# image_preprocessing
 
 Image preprocessing in Object Detection App.
 

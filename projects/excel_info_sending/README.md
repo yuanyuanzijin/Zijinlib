@@ -1,4 +1,4 @@
-# python-scripts/excel_info_sending
+# excel_info_sending
 
 Automatically sending email program. Send the password corresponding to the student in the excel form to the corresponding mailbox.
 
