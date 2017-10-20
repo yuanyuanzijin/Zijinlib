@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 setup(
     name='zijinlib',
-    version="0.12.1",
+    version="0.12.2",
     description=(
         'A python package to process files and other things.'
     ),
