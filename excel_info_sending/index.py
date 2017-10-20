@@ -4,15 +4,15 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir)))
 import zijinlib as zj
 
-excel_path = os.path.join('excel_info_sending', "tmp", "info.xls")  # 自行导入，本例中第一列是学号，第二列是要发送的密码，第三列是姓名，第四列是邮箱
+excel_path = os.path.join('excel_info_sending', "tmp", "info.xlsx")  # 自行导入，本例中第一列是学号，第二列是姓名，第三列是邮箱，第四列是要发送的密码
 data = xlrd.open_workbook(excel_path)
 table = data.sheets()[0]
 nrows = table.nrows
 for i in range(nrows): 
     data = table.row_values(i)
-    name = data[2]
-    emailaddr = data[3]
-    password = data[1]
+    name = data[1]
+    emailaddr = data[2]
+    password = data[3]
     subject = "心理测评密码"
     content = """
         <p>网址：http://xinli.gzedu.com/</p>

@@ -3,17 +3,17 @@ import os
 from email.mime.text import MIMEText
 from email.header import Header
 
-secret_path = os.path.join('excel_info_sending', "secret.txt")
-with open(secret_path) as f:
-    content = f.readlines()
-    EMAIL_NAME = content[0]
-    SECRET_KEY = content[1]
-
-mail_host="smtp.qq.com"  #设置服务器
-mail_user=EMAIL_NAME    #用户名
-mail_pass=SECRET_KEY   #口令 
+def mail_init():
+    mail_host="smtp.qq.com"  #设置服务器
+    secret_path = os.path.join('excel_info_sending', "secret.txt")
+    with open(secret_path) as f:
+        content = f.readlines()
+        mail_user = content[0]
+        mail_pass = content[1]
+    return mail_host, mail_user, mail_pass
 
 def send_email(name, emailaddr, content, subject):
+    mail_host, mail_user, mail_pass = mail_init()
     sender = mail_user
     receivers = [emailaddr]  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
     mail_msg = content
