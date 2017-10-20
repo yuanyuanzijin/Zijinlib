@@ -5,10 +5,18 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.split(__file__)[0], os.pardir)))
 import zijinlib as zj
 
-path = 'D:\\program\\object-detection\\data\\strawberry\\'
-suffix = input('请输入要检测的图片后缀（例如：jpg）')
+path = 'D:\\program\\object-detection\\data\\orange\\'
+suffix = input('请输入要检测的图片后缀（默认为jpg）')
+if not suffix:
+    suffix = 'jpg'
 print('开始检测损坏的%s文件...' % suffix)
-delnum, dellist = zj.file.detect_damaged_pictures(path, suffix)
+
+filelist = zj.file.sort_suffix(path, suffix)
+filenum = len(filelist)
+print('共检测到%d张%s后缀的图片' % (filenum, suffix))
+
+dellist = zj.file.detect_damaged_pictures(filelist)
+delnum = len(dellist)
 
 if not dellist:
     print('检测完毕，没有图片损坏')
@@ -21,12 +29,11 @@ for i in dellist:
 s = input('是否删除这些文件？([y]/n)：')
 if not s:
     s = 'y'
-
 if s == ('y' or 'Y'):
     print('开始删除任务队列...')
-    delnumsuccess, delnumfail = zj.file.delete_from_list(path, dellist)
+    delnumsuccess, delnumfail = zj.file.delete_from_list(dellist)
     print('删除完毕，任务队列%d个文件，成功删除%d个文件，未删除%d个文件' 
-        % (len(dellist), delnumsuccess, delnumfail))
-    print('删除后请重新执行filter.py')
+        % (delnum, delnumsuccess, delnumfail))
+    print('删除后请重新执行sffix_filter.py')
 else:
     print('您已取消，未进行操作')
