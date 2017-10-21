@@ -2,7 +2,7 @@ import smtplib
 import os
 from email.mime.text import MIMEText
 from email.header import Header
-import ConfigParser 
+import configparser 
 
 def init(config_path):
     c = ConfigParser.ConfigParser() 
