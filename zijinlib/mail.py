@@ -8,11 +8,11 @@ def init(config_path):
     c = ConfigParser.ConfigParser() 
     with open(config_path) as f: 
         c.readfp(f) 
-        mail_host = config.get('info', 'mail_host')  #设置服务器
-        mail_port = config.get('info', 'mail_port')
-        mail_user = config.get('info', 'mail_user')
-        mail_pass = config.get('info', 'mail_pass')
-        sender = config.get('info', 'sender')
+        mail_host = c.get('info', 'mail_host')  #设置服务器
+        mail_port = c.get('info', 'mail_port')
+        mail_user = c.get('info', 'mail_user')
+        mail_pass = c.get('info', 'mail_pass')
+        sender = c.get('info', 'sender')
     return mail_host, mail_port, mail_user, mail_pass, sender
 
 def send(config, emailaddr, content, subject):
