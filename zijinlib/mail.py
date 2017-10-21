@@ -5,7 +5,7 @@ from email.header import Header
 import configparser 
 
 def init(config_path):
-    c = ConfigParser.ConfigParser() 
+    c = configparser.ConfigParser() 
     with open(config_path) as f: 
         c.readfp(f) 
         mail_host = c.get('info', 'mail_host')  #设置服务器
