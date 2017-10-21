@@ -1,21 +1,21 @@
 import os
 import imghdr
 
-def sort_suffix(path, suffix):
+def sort(path, suffix):
     filelist = []
     for f in os.listdir(path):
         if f.endswith(suffix):
             filelist.append(path+f)
     return filelist
 
-def detect_damaged_pictures(filelist):
+def detect_damage(filelist):
     dellist = []
     for f in filelist:
         if not imghdr.what(f):
             dellist.append(f)
     return dellist
 
-def delete_from_list(dellist):
+def delete_files(dellist):
     delnumsuccess = 0
     delnumfail = 0
     for delpath in dellist:
@@ -28,7 +28,7 @@ def delete_from_list(dellist):
             print(delpath+'删除失败')
     return delnumsuccess, delnumfail
 
-def search_two_suffixes(sourcelist, targetlist):
+def compare_suffixes(sourcelist, targetlist):
     targetlist_new = []
     dellist = []
     for t in targetlist:
