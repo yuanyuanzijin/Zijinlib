@@ -2,8 +2,31 @@
 python-zijinlib
 ===============================================
 
-
 Zijinlib is a common python package written by me. Every project in this repo will import modules from this package.
+
+Installation
+=======
+
+So before you use, please run the code below in the root directory.
+
+``pip install zijinlib`` 
+
+for installing the stable version.
+
+or
+
+``pip install git+https://github.com/yuanyuanzijin/python-zijinlib`` 
+
+for installing and updating the newest version.
+
+Since this project is in a period of rapid development, please confirm the current version of your package when using this project. We recommend that you update your package when you see new changes in this repo.
+
+Usage
+=============
+
+The document will be written soon. Before it has been written, please refer the examples in the projects folder.
+
+The project folder contains several examlpes of using this python package. For specific instructions, see the various folders. Each folder is a script project.
 
 Description
 ================
@@ -32,23 +55,3 @@ Some methods of sending emails via python.
 
 * zj.mail.send_email(emailaddr, content, subject)
 向给定emailaddr发送邮件，返回发送结果。
-
-Installation
-=======
-
-So before you use, please run the code below in the root directory.
-
-``pip install zijinlib --upgrade`` for installing and updating the stable version.
-
-or
-
-``pip install git+https://github.com/yuanyuanzijin/python-zijinlib`` for installing and updating the newest version.
-
-Since this project is in a period of rapid development, please confirm the current version of your package when using this project. We recommend that you update your package when you see new changes in this repo.
-
-Usage
-=============
-
-The document will be written soon. Before it has been written, please refer the examples in the projects folder.
-
-The project folder contains several examlpes of using this python package. For specific instructions, see the various folders. Each folder is a script project.
