@@ -33,25 +33,38 @@ Description
 
 Brief introductions.
 
-zj.file
+zijinlib.file
 ----
-Some methods of processing the file.
 
-* zj.file.sort_suffix(path, suffix)
+Some methods of processing the file. You can use
+
+``import zijinlib.file as zjfile``
+
+to import zijinlib.file module.
+
+* zjfile.sort(path, suffix)
 在给定path中选出指定后缀名的文件，返回这些文件的绝对路径的数组。
 
-* zj.file.detect_damaged_pictures(filelist)
+* zjfile.detect_damage(filelist)
 检测给定的图片路径列表中是否有损坏的图片。
 
-* zj.file.delete_from_list(dellist)
+* zjfile.delete_files(dellist)
 删除给定文件路径列表中的文件。
 
-* zj.file.search_two_suffixes(sourcelist, targetlist)
+* zjfile.compare_suffixes(sourcelist, targetlist)
 在给定的两组不同后缀名的文件路径列表中选出没有成对后缀的文件，返回这些文件的绝对路径的数组。
 
-zj.mail
+zijinlib.mail
 ----
-Some methods of sending emails via python.
 
-* zj.mail.send_email(emailaddr, content, subject)
+Some methods of sending emails via python.You can use
+
+``import zijinlib.mail as zjmail``
+
+to import zijinlib.mail module.
+
+* zjmail.init(config_path)
+从给定路径读取配置文件，返回邮箱配置信息。
+
+* zjmail.send(config, emailaddr, content, subject)
 向给定emailaddr发送邮件，返回发送结果。

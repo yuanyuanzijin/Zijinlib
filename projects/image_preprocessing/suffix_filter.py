@@ -7,13 +7,13 @@ path = 'D:\\program\\object-detection\\data\\' + classname
 suffix1 = 'jpg'
 suffix2 = 'xml'
 list1 = zjfile.sort(path, suffix1)
-list2 = zjfile.sort_suffix(path, suffix2)
+list2 = zjfile.sort(path, suffix2)
 listnum1 = len(list1)
 listnum2 = len(list2)
 
-dellist1 = zjfile.search_two_suffixes(list1, list2)
+dellist1 = zjfile.compare_suffixes(list1, list2)
 delnum1 = len(dellist1)
-dellist2 = zjfile.search_two_suffixes(list2, list1)
+dellist2 = zjfile.compare_suffixes(list2, list1)
 delnum2 = len(dellist2)
 dellist = dellist1 + dellist2
 delnum = len(dellist)
@@ -30,7 +30,7 @@ if not s:
     s = 'y'
 if s == ('y' or 'Y'):
     print('开始删除任务队列...')
-    delnumsuccess, delnumfail = zjfile.delete_from_list(dellist)
+    delnumsuccess, delnumfail = zjfile.delete_files(dellist)
     print('删除完毕，任务队列%d个文件，成功删除%d个文件，未删除%d个文件' % (delnum, delnumsuccess, delnumfail))
 else:
     print('您已取消，未进行操作')
