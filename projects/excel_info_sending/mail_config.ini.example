@@ -1,0 +1,6 @@
+[info]
+mail_host = smtp.qq.com
+mail_port = 443
+mail_user = xxxxxx
+mail_pass = xxxxxx
+sender = xxxxxx

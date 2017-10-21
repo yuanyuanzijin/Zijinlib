@@ -105,3 +105,4 @@ tmp/
 .idea/
 secret.txt
 MANIFEST
+projects/excel_info_sending/mail_config.ini
