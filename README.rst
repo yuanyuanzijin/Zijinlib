@@ -5,7 +5,7 @@ python-zijinlib
 Zijinlib is a common python package written by me. Every project in this repo will import modules from this package.
 
 Installation
-=======
+================
 
 So before you use, please run the code below in the root directory.
 
@@ -34,37 +34,68 @@ Description
 Brief introductions.
 
 zijinlib.file
-----
+-------------
 
 Some methods of processing the file. You can use
 
-``import zijinlib.file as zjfile``
+``import zijinlib.file as file``
 
 to import zijinlib.file module.
 
-* zjfile.sort(path, suffix)
+* file.sort(path, suffix)
+
 在给定path中选出指定后缀名的文件，返回这些文件的绝对路径的数组。
 
-* zjfile.detect_damage(filelist)
+* file.detect_damage(filelist)
+
 检测给定的图片路径列表中是否有损坏的图片。
 
-* zjfile.delete_files(dellist)
+* file.delete_files(dellist)
+
 删除给定文件路径列表中的文件。
 
-* zjfile.compare_suffixes(sourcelist, targetlist)
+* file.compare_suffixes(sourcelist, targetlist)
+
 在给定的两组不同后缀名的文件路径列表中选出没有成对后缀的文件，返回这些文件的绝对路径的数组。
 
+zijinlib.spider
+-----------------
+
+Some methods of writing web crawler.You can use
+
+``import zijinlib.spider as spider``
+
+to import zijinlib.spider module.
+
+* spider.open(url, charset=None)
+
+使用GET方法访问网站，自动识别编码并解析网站（也可指定编码），返回网站内容
+
+* spider.post(url, data=None, headers=None, charset=None)
+
+向指定网址发送POST请求，会自动对data进行urlencode，返回响应内容
+
+* spider.open_proxy(proxy)
+
+开启http上网代理，只需运行一次
+
+* class spider.Cookie()
+
+Cookie类，在网站访问前定义对象，如cookie = spider.Cookie()，网站访问后可使用print(cookie)查看cookie字典，以及cookie.get(key)方法获取指定cookie值。
+
 zijinlib.mail
-----
+------------------
 
 Some methods of sending emails via python.You can use
 
-``import zijinlib.mail as zjmail``
+``import zijinlib.mail as mail``
 
 to import zijinlib.mail module.
 
-* zjmail.init(config_path)
+* mail.init(config_path)
+
 从给定路径读取配置文件，返回邮箱配置信息。
 
-* zjmail.send(config, emailaddr, content, subject)
-向给定emailaddr发送邮件，返回发送结果。
+* mail.send(config, emailaddr, content, subject)
+
+向给定emailaddr发送邮件，返回发送结果，第一个参数为mail.init()的返回值。
