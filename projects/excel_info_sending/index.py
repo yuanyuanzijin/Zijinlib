@@ -1,6 +1,6 @@
 import xlrd
 import os
-import zijinlib.mail as zjmail
+import zijinlib.mail as zmail
 
 excel_path = os.path.join('projects', 'excel_info_sending', "tmp", "info.xlsx")  # 自行导入，本例中第一列是学号，第二列是姓名，第三列是邮箱，第四列是要发送的密码
 data = xlrd.open_workbook(excel_path)
@@ -8,7 +8,7 @@ table = data.sheets()[0]
 nrows = table.nrows
 
 config_path = os.path.join('projects', 'excel_info_sending', 'mail_config.ini')
-config = zjmail.init(config_path)
+config = zmail.init(config_path)
 
 print('开始邮件发送......')
 successnum = 0
@@ -23,7 +23,7 @@ for i in range(nrows):
         <p>网址：http://xinli.gzedu.com/</p>
         <p>%s你好，你的心理测评密码为：%s</p>
     """ % (name, password)
-    back = zjmail.send(config, emailaddr, content, subject)
+    back = zmail.send(config, emailaddr, content, subject)
     if back:
         print(name+'发送成功')
         successnum += 1

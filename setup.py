@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 setup(
     name='zijinlib',
-    version="0.12.6",
+    version="0.13.1",
     description=(
-        'A python package to process files and other things.'
+        'A package which can make your python programing more convenient.'
     ),
     long_description=open('README.rst', 'rb').read().decode('utf-8'),
     author='yuanyuanzijin',
@@ -11,7 +11,7 @@ setup(
     license='BSD License',
     packages=find_packages(),
     platforms=["all"],
-    url='https://github.com/yuanyuanzijin',
+    url='https://github.com/yuanyuanzijin/zijinlib',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Operating System :: OS Independent',
