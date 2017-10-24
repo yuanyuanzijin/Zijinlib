@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 setup(
     name='zijinlib',
-    version="0.13.1",
+    version="0.14.0",
     description=(
-        'A package which can make your python programing more convenient.'
+        'A package which can make your python programming more convenient.'
     ),
     long_description=open('README.rst', 'rb').read().decode('utf-8'),
     author='yuanyuanzijin',

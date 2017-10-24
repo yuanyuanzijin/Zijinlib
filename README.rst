@@ -69,15 +69,15 @@ to import zijinlib.spider module.
 
 * spider.open(url, charset=None)
 
-使用GET方法访问网站，自动识别编码并解析网站（也可指定编码），返回网站内容
+使用GET方法访问网站，自动识别编码并解析网站（也可指定编码），返回网站内容。
 
 * spider.post(url, data=None, headers=None, charset=None)
 
-向指定网址发送POST请求，会自动对data进行urlencode，返回响应内容
+向指定网址发送POST请求，会自动对data进行urlencode，返回响应内容。
 
 * spider.open_proxy(proxy)
 
-开启http上网代理，只需运行一次
+开启http上网代理，只需运行一次。
 
 * class spider.Cookie()
 
@@ -99,3 +99,24 @@ to import zijinlib.mail module.
 * mail.send(config, emailaddr, content, subject)
 
 向给定emailaddr发送邮件，返回发送结果，第一个参数为mail.init()的返回值。
+
+zijinlib.qq
+-----------------
+
+Some methods of send qq message via python.
+
+注意！！本模块基于qqbot，使用前，请在终端运行 ``pip install qqbot`` 安装该模块。安装后，在终端运行 ``qqbot`` 扫码登录。登录后会保存登录信息，两天内可通过 ``qqbot -q qq号码`` 免扫码自动登录。
+
+After that, you can use
+
+``import zijinlib.qq as qq``
+
+to import zijinlib.qq module.
+
+* qq.update()
+
+更新好友，群，讨论组列表。
+
+* qq.send(mode, members, content)
+
+发送QQ消息，mode代表模式（0好友，1群，2讨论组），members为发送对象（数组形式，可群发），content为消息内容。
