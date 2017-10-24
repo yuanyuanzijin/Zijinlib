@@ -1,8 +1,10 @@
-import os
-import qqlib as qq
+import zijinlib.qq as qq
 
-members = ['小王', '小李']
-groups = ['344247954', ]
+# 更新好友，群和讨论组列表
+qq.update()
 
-qq.send(members, '嘿嘿')
-qq.send_group(groups, '大家好！')
+mode = 0   # 好友0, 群1, 讨论组2
+members = ['小王']      # QQ号，群号和备注名均可，多人可群发
+content = '你好啊'
+qq.send(mode, members, content)
+

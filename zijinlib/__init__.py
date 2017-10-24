@@ -1,1 +1,1 @@
-from zijinlib import mail, file, spider
+from zijinlib import mail, file, spider, qq
