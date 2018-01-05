@@ -22,16 +22,16 @@ def send_email(scores):
 
 print('\n********** 欢迎使用大连理工大学研究生成绩自助查询系统 **********')
 print('*********************** Powered by Zijin ***********************')
-user = dutsso.User()
+u = dutsso.User()
 
 while 1:
-    username = input('\n请输入学号：')
-    password = getpass.getpass('请输入密码：')
+    u.username = input('\n请输入学号：')
+    u.password = getpass.getpass('请输入密码：')
 
     # SSO登录
-    login = user.login(username, password)
+    login = u.login()
     if login:
-        print(username + "登录成功！开始检测成绩...")
+        print(u.username + "登录成功！开始检测成绩...")
         break
     else:
         print("用户名密码错误！")
@@ -39,7 +39,7 @@ while 1:
 old_num = 0
 while 1:
     # 查询研究生成绩
-    scores = user.get_score()
+    scores = u.get_score()
     new_num = len(scores["bx"]) + len(scores["xx"])
     if old_num != new_num:
         print("\n发现新成绩！您的研究生成绩信息为：")
@@ -61,7 +61,7 @@ while 1:
         cost = btime - atime
         hour = int(cost/3600)
         minute = int((cost%3600)/60)
-        print("距离上次找到新成绩已过去%d小时%d分" %(hour, minute), end="\r")
+        print("\r距离上次找到新成绩已过去%d小时%d分" %(hour, minute), end="")
     old_num = len(scores["bx"]) + len(scores["xx"])
     time.sleep(60)
 
