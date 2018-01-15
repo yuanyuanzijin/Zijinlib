@@ -8,10 +8,10 @@ config = zmail.init(config_path)
 def send_email(scores, obj):
     if obj.first_use:
         subject = "欢迎使用新成绩提醒系统！"
-        content = "<p>%s您好，您已订阅新成绩提醒系统，我们将在检测新成绩后为您推送邮件~</p>" % obj.username
+        content = "<p>%s您好，您已订阅新成绩提醒系统，我们将在检测新成绩后为您推送邮件~</p>" % obj.name
     else:
         subject = "发现新成绩！"
-        content = "<p>%s您好，发现一条新成绩</p>" % obj.username
+        content = "<p>%s您好，发现一条新成绩</p>" % obj.name
     content += '*****共找到%d条必修课成绩<br />' % len(scores["bx"])
     for i in scores["bx"].keys():
         line = "<p>" + i + " " + scores["bx"][i] + "</p>"
@@ -43,7 +43,7 @@ for i in range(u_len):
         # SSO登录
         login = u['u'+str(i)].login()
         if login:
-            print(u['u'+str(i)].username + "第%d个用户登录成功！" % (i+1))
+            print(u['u'+str(i)].name + "登录成功！")
             break
         else:
             print("第%d个用户用户名密码错误！" % i)
@@ -55,17 +55,23 @@ while 1:
     # 查询研究生成绩
     for i in range(u_len):
         if not u['u'+str(i)].isactive():
-            print('\n第%d个用户登录状态过期，正在重连...' % (i+1))
+            print('\n%s登录状态过期，正在重连...' % u['u'+str(i)].name)
+            if not u['u'+str(i)].password:
+                print("%s没有输入密码，无法重新登录！" % u['u'+str(i)].name)
+                continue
             if u['u'+str(i)].login(try_cookies=False):
-                print('第%d个用户重新登陆成功！' % (i+1))
+                print('%s重新登录成功！' % u['u'+str(i)].name)
+            else:
+                print("%s重新登录失败！" % u['u'+str(i)].name)
+                continue
 
         scores = u['u'+str(i)].get_score()
         u['u'+str(i)].new_num = len(scores["bx"]) + len(scores["xx"])
         if u['u'+str(i)].new_num > u['u'+str(i)].old_num:
             if u['u'+str(i)].first_use:
-                print("\n%s您好，您已订阅新成绩提醒系统！提醒邮箱%s" % (u['u'+str(i)].username,  u['u'+str(i)].emailaddr))
+                print("\n%s您好，您已订阅新成绩提醒系统！提醒邮箱%s" % (u['u'+str(i)].name,  u['u'+str(i)].emailaddr))
             else:
-                print("\n%s发现新成绩！您的研究生成绩信息为：" % u['u'+str(i)].username)
+                print("\n\n%s发现新成绩！您的研究生成绩信息为：" % u['u'+str(i)].name)
             print('*****共找到%d条必修课成绩' % len(scores["bx"]))
             for m in scores["bx"].keys():
                 print(m, scores["bx"][m])
