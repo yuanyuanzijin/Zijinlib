@@ -61,9 +61,9 @@ while 1:
             print("重新登录成功！")
     
     for i in course_list:
-        status = i['c_enable']
+        full = i['c_full']
         # 如果可选
-        if status: 
+        if not full: 
             back = u.choose_course(i)
             if back:
                 print("******%s选课成功！" % i['c_name'])
